@@ -61,7 +61,7 @@ function harvest5x5(sens)
 			repeat until turtle.down()
 			repeat until not(turtle.forward())
 		end
-		if math.fmod(cnt,2) == sens
+		if math.fmod(cnt,2) == sens then
 			turtle.turnLeft()
 			repeat until not(turtle.forward())
 			turtle.turnLeft()
