@@ -1,8 +1,6 @@
-local function init()
-    local reactor = peripheral.wrap("right")
-    local max_energy_stored = 10000000
-    local energy_stored = 0
-end
+local reactor = peripheral.wrap("right")
+local max_energy_stored = 10000000
+local energy_stored = 0
 
 local function on()
     reactor.setActive(true)
@@ -17,12 +15,11 @@ local function isActive()
 end
 
 local function run()
-    init()
     while true do
         energy_stored = reactor.getEnergyStored()
         if ((energy_stored <= 0.2*max_energy_stored) and not(isActive())) then
             on()
-        elseif ((energy_stored >= 0.9*max_energy_stored) and isActive()) do
+        elseif ((energy_stored >= 0.9*max_energy_stored) and isActive()) then
             off()
         end
         sleep(1)
